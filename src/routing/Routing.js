@@ -5,6 +5,8 @@ import {
 import Home from "../pages/Home/Home";
 import Product from "../pages/Products/Product";
 import Addproduct from "../components/AddProduct/Addproduct";
+import ProductList from "../components/ProductList";
+import Footer from "../components/Footer/Footer";
  
   
   
@@ -16,11 +18,15 @@ import Addproduct from "../components/AddProduct/Addproduct";
     },
     {
       path: "/products",
-      element: <Product/>,
+      element: <ProductList/>,
     },
     {
         path:"/AddProduct",
         element:<Addproduct/>
+    },
+    {
+      path:"/contact",
+      element:<Footer/>
     }
     
   

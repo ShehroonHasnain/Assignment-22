@@ -32,23 +32,24 @@ export const productSlice = createSlice({
             let filterProduct = state.products.filter(product => product.id !== id)
             state.products = filterProduct
         },
-        addProduct:(state,action)=>{
-            console.log('add product action',action.payload);
-            state.products=[action.payload,...state.products]
-            
-        },
-        updateProduct:(state,action)=>{
-            let id = action.payload
-            console.log('id in updateAction ',id);
-            let fiterUpdateProduct=state.products.filter(product=>product.id!==id)
-            console.log('filterUpdateProduct',fiterUpdateProduct);
-            
+        addProduct: (state, action) => {
+            console.log('add product action', action.payload);
+            state.products = [action.payload, ...state.products]
 
-            // let updatedata = state.products.filter(product => product.id!==id)
-        //    console.log("product to be update",updatedata);
+        },
+        updateProduct: (state, action) => {
+            let updateProduct = action.payload
+            console.log('update product in action', updateProduct);
+            const index = state.products.findIndex(item => item.id === updateProduct.id);
+           let filterUpdateProduct=state.products.splice(index,updateProduct.id,{
+            ...state.products[index],...updateProduct
+           })
+           console.log('filterUpdateProduct',filterUpdateProduct);
            
-            
+          
+
         }
+
     },
     extraReducers: builder => {
 
@@ -64,8 +65,7 @@ export const productSlice = createSlice({
             state.products = filteredProducts;
         },)
 
-    }
-}
+    }}
 );
-export const {deleteProduct,addProduct,updateProduct } = productSlice.actions;
+export const { deleteProduct, addProduct, updateProduct } = productSlice.actions;
 export default productSlice.reducer;

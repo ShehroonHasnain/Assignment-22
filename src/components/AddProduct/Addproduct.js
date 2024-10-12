@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addProduct } from '../../redux/slice/productSlice'
 import './AddProduct.css'
+import { Link } from 'react-router-dom'
 
 
 export default function Addproduct() {
@@ -57,7 +58,7 @@ export default function Addproduct() {
                         <input type="text" placeholder="category" onChange={(e) => setCategory(e.target.value)}   required
                         />
                     </div>
-                    <button type="submit" className="submit-btn" onClick={onClickAddProduct}>Add</button>
+                   <Link to='/' style={{alignItems:"center"}}> <button type="submit" className="submit-btn" onClick={onClickAddProduct}>Add</button></Link>
                 </form>
             </div>
         </div>

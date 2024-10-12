@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ProductList.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts,deleteProduct,deleteProductApiAction,updateProduct } from '../redux/slice/productSlice';
 import { Link } from 'react-router-dom';
+import UpdatePopup from './UpdatePopup/UpdatePopup';
 
 
 
@@ -25,16 +26,25 @@ export default function ProductList() {
         // dispatch(deleteProduct(id))
         dispatch(deleteProductApiAction(id))
         }
+        const [UpdateState,setUpdateState]=useState(false)
+        const [id,setId]=useState()
+       
+        
     const onClickUpdateProduct=(id)=>{
            console.log("update product id",id);
-           dispatch(updateProduct(id))
+        //    dispatch(updateProduct(id))
+        setUpdateState(true)
+        setId(id)
+        
+     
            
     }
 
 
 
     return (
-        <div>
+        <div id='products'>
+            { UpdateState && <UpdatePopup id={id} UpdateState={UpdateState} setUpdateState={setUpdateState} />}
 
             {products?.map(product => {
                 return (
@@ -49,9 +59,9 @@ export default function ProductList() {
                             <p>{product.description}</p>
                             <p className="price">${product.price}</p>
 
-                            <Link to="/AddProduct"><button onClick={()=>onClickUpdateProduct(product.id)} className="update-btn">Update</button></Link>
+                           <button onClick={()=>onClickUpdateProduct(product.id)} className="update-btn">Update</button>
                             <button onClick={()=>onClickDeleteProduct(product.id)} className="update-btn" style={{ backgroundColor: "red" }}>Delete</button>
-
+                        
                         </div>
 
 

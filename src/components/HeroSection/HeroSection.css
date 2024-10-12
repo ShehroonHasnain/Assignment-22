@@ -2,7 +2,7 @@
 .hero-container {
     width: 100%;
     height: 400px;
-    background-image: url('https://www.istockphoto.com/illustrations/online-shopping-background'); /* Add your background image URL */
+    background-image: url('../../assets/backGround-img-website.avif');
     background-size: cover;
     background-position: center;
     display: flex;

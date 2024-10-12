@@ -1,0 +1,26 @@
+.footer {
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.contact-info {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.contact-info p{
+    margin: 5px 0;
+   padding: 20px;
+}
+
+.footer-bottom {
+    font-size: 14px;
+}
